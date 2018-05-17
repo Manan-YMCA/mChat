@@ -65,7 +65,7 @@ public class StartActivity extends AppCompatActivity {
                 // and pass it to your server and exchange it for an access token.
 
                 // Success! Start your next activity...
-                final Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                final Intent intent = new Intent(getApplicationContext(),MainChatActivity.class);
                 startActivity(intent);
             }
 
