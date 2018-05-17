@@ -23,7 +23,7 @@ If you have any problem, remove the 'mchat' folder, start again from 2) and work
 *4. Online/Offline Filtering of user</br>*
 *5. Message pin for important messages<br />*
 *6. End to End Encryption*
-
+*7. Chat Search*
 ## Built With
 * [Android Studio](https://developer.android.com/studio/) - The Development Platform used for Android Application
 * [Socket.io](https://socket.io/) - Socket.IO enables real-time bidirectional event-based communication
