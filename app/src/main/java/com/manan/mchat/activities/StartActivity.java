@@ -24,12 +24,10 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_start);
 
         LoginButton = (Button)findViewById(R.id.btn_login);
-        AccessToken accessToken = AccountKit.getCurrentAccessToken();
-
-
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +63,7 @@ public class StartActivity extends AppCompatActivity {
                 // and pass it to your server and exchange it for an access token.
 
                 // Success! Start your next activity...
-                final Intent intent = new Intent(getApplicationContext(),MainChatActivity.class);
+                final Intent intent = new Intent(getApplicationContext(),ContactListActivity.class);
                 startActivity(intent);
             }
 

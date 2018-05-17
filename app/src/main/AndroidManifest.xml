@@ -3,7 +3,8 @@
     package="com.manan.mchat">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,19 +22,22 @@
             android:name="com.facebook.accountkit.ClientToken"
             android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
 
-        <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.StartActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.facebook.accountkit.ui.AccountKitActivity"></activity>
+        <activity android:name=".activities.StartActivity">
+
+        </activity>
+        <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
         <activity
             android:name=".activities.MainChatActivity"
             android:label="@string/title_activity_main_chat"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.ContactListActivity"></activity>
     </application>
 
 </manifest>
