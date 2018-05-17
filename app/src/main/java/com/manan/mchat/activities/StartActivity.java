@@ -1,4 +1,4 @@
-package com.manan.mchat;
+package com.manan.mchat.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +9,12 @@ import android.widget.Toast;
 
 import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccessToken;
-import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
-import com.manan.mchat.activities.MainActivity;
+import com.manan.mchat.R;
+import com.manan.mchat.activities.MainChatActivity;
 
 
 public class StartActivity extends AppCompatActivity {
