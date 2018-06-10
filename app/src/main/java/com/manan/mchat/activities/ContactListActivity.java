@@ -1,22 +1,31 @@
 package com.manan.mchat.activities;
 
+import android.arch.lifecycle.Observer;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.ContactsContract;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import Model.Contact;
+import DatabaseController.Contact;
 import Adapter.ContactListAdapter;
 import com.manan.mchat.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import  DatabaseController.ContactsRepository;
+import DatabaseController.ContactsViewModel;
 
 public class ContactListActivity extends AppCompatActivity {
-    private ArrayList<Contact> mContacts;
+    private List<Contact> mContacts;
+    private List<Contact> alContacts;
+    private int ADAPTER_SET=0;
+    private ContactsViewModel mContactsViewModel;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
+    private ContactListAdapter mContactListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,18 +35,39 @@ public class ContactListActivity extends AppCompatActivity {
         mLinearLayoutManager=new LinearLayoutManager(this);
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        getContactsIntoArrayList();
-
+        mRecyclerView.setAdapter(new ContactListAdapter(this,mContacts));
+        mContactsViewModel = new ContactsViewModel(getApplication());
+        mContactsViewModel.getContacts().observe(this, new Observer<List<Contact>>() {
+            @Override
+            public void onChanged(@Nullable List<Contact> contacts) {
+                mContacts = contacts;
+                if (ADAPTER_SET == 0) {
+                    mContactListAdapter = new ContactListAdapter(getApplicationContext(), mContacts);
+                    mRecyclerView.setAdapter(mContactListAdapter);
+                    ADAPTER_SET = 1;
+                } else {
+                    mContactListAdapter.setContacts(mContacts);
+                }
+            }
+        });
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getContactsIntoList();
+            }
+        }).run();
     }
-    public void getContactsIntoArrayList(){
+    public void getContactsIntoList(){
 
 
-        ContentResolver cr = this.getContentResolver();
-        ArrayList<Contact> alContacts = new ArrayList<Contact>();
+
+        ContentResolver cr = getApplication().getContentResolver();
+        List<Contact> alContacts = new ArrayList<Contact>();
         String[] projection = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,ContactsContract.CommonDataKinds.Phone.NUMBER ,ContactsContract.CommonDataKinds.Phone.PHOTO_URI};
         String sortOrder= ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC";
         Cursor cursor = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, projection,null, null, sortOrder);
         String name,phonenumber;
+        Contact mContact;
         while (cursor.moveToNext()) {
 
             name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
@@ -50,15 +80,16 @@ public class ContactListActivity extends AppCompatActivity {
             if (phonenumber.length()>10){
                 phonenumber=phonenumber.substring(phonenumber.length()-10);
             }
+            mContact=new Contact(name,phonenumber);
+            mContactsViewModel.insert(mContact);
 
-            alContacts.add(new Contact(name,phonenumber));
         }
 
         cursor.close();
 
-        mContacts=alContacts;
+//        mContacts=alContacts;
 
-        mRecyclerView.setAdapter(new ContactListAdapter(this,mContacts));
+
 
     }
 }

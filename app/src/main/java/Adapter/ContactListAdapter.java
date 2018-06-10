@@ -7,16 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import Model.Contact;
+import DatabaseController.Contact;
 
 import com.manan.mchat.R;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactHolder> {
     private Context mContext;
-    private ArrayList<Contact> mContacts;
+    private List<Contact> mContacts;
 
-    public ContactListAdapter(Context context, ArrayList<Contact> contacts) {
+    public ContactListAdapter(Context context, List<Contact> contacts) {
         mContext = context;
         mContacts = contacts;
     }
@@ -50,5 +51,9 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             contactName.setText(contact.getName());
             contactNumber.setText(contact.getNumber());
         }
+    }
+    public void setContacts(List<Contact> contacts){
+        mContacts=contacts;
+        notifyDataSetChanged();
     }
 }

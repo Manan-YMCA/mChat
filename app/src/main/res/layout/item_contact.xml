@@ -28,14 +28,16 @@
                 android:text="Hemant"
                 android:ellipsize="end"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/Black"/>
 
 
             <TextView
                 android:id="@+id/contact_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9910596821" />
+                android:text="9910596821"
+                android:textColor="@color/Black"/>
 
 
 
