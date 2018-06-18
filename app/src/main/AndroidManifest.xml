@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.manan.mchat">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="mchat"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -37,7 +38,7 @@
             android:label="@string/title_activity_main_chat"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ContactListActivity" />
-        <activity android:name=".activities.Chat"></activity>
+        <activity android:name=".activities.chat_list" />
     </application>
 
 </manifest>
