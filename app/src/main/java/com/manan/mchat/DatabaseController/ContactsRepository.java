@@ -1,4 +1,4 @@
-package DatabaseController;
+package com.manan.mchat.DatabaseController;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
@@ -18,18 +18,20 @@ public class ContactsRepository {
     private List<Contact> mAllContacts;
 
     public ContactsRepository(Application application) {
-        AppDatabase db=AppDatabase.getContactsDatabase(application);
-        mContactsDao=db.mContactsDao();
-        mContacts=mContactsDao.getContacts();
+        AppDatabase db = AppDatabase.getContactsDatabase(application);
+        mContactsDao = db.mContactsDao();
+        mContacts = mContactsDao.getContacts();
     }
 
     public LiveData<List<Contact>> getContacts() {
         return mContacts;
     }
-    public List<Contact> getAllContacts(){
+
+    public List<Contact> getAllContacts() {
         return mAllContacts;
     }
-    public void insert(Contact contact){
+
+    public void insert(Contact contact) {
         new InsertAsyncTask(mContactsDao).execute(contact);
     }
 
@@ -38,7 +40,7 @@ public class ContactsRepository {
         private ContactDao mContactsDao;
 
         public InsertAsyncTask(ContactDao contactsDao) {
-            mContactsDao= contactsDao;
+            mContactsDao = contactsDao;
         }
 
         @Override

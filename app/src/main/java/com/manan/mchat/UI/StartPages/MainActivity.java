@@ -1,12 +1,13 @@
-package com.manan.mchat.activities;
+package com.manan.mchat.UI.StartPages;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.accountkit.AccessToken;
 import com.facebook.accountkit.AccountKit;
 import com.manan.mchat.R;
+import com.manan.mchat.UI.ContactListPage.ContactListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
