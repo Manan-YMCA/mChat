@@ -1,4 +1,4 @@
-package SQLDatabaseHandler;
+package com.manan.mchat.SQLDatabaseHandler;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -51,25 +51,27 @@ public class DbHelper extends SQLiteOpenHelper {
         database.insert(DB_TABLE, null, cv);
         Log.d("prerna", "name added");
     }
-    public void updateName(String name){
+
+    public void updateName(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(USER_NAME,name);
-        db.update(DB_TABLE , contentValues , null , null);
-        Log.d("prerna","name updated");
+        contentValues.put(USER_NAME, name);
+        db.update(DB_TABLE, contentValues, null, null);
+        Log.d("prerna", "name updated");
     }
-    public String retrieveName(){
+
+    public String retrieveName() {
         String selectQuery = "SELECT  * FROM " + DB_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             String name = cursor.getString(0);
             cursor.close();
-            Log.d("prerna","name1 retrieved");
+            Log.d("prerna", "name1 retrieved");
             return name;
         }
         cursor.close();
-        Log.d("prerna","name2 retrieved");
+        Log.d("prerna", "name2 retrieved");
         return null;
 
     }

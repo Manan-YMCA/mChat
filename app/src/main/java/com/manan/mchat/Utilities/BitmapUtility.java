@@ -1,4 +1,4 @@
-package Utilities;
+package com.manan.mchat.Utilities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

@@ -1,4 +1,4 @@
-package SQLDatabaseHandler;
+package com.manan.mchat.SQLDatabaseHandler;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,11 +24,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // column names
 
-
     private static final String KEY_IMAGE = "image_data";
 
     // Table create statement
-    private static final String CREATE_TABLE_IMAGE = "CREATE TABLE " + DB_TABLE + "("+
+    private static final String CREATE_TABLE_IMAGE = "CREATE TABLE " + DB_TABLE + "(" +
             KEY_IMAGE + " BLOB);";
 
     public DatabaseHelper(Context context) {
@@ -49,27 +48,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // create new table
         onCreate(db);
     }
-    public void addImage(  byte[] image) throws SQLiteException {
+
+    public void addImage(byte[] image) throws SQLiteException {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(KEY_IMAGE,   image);
-        database.insert( DB_TABLE, null, cv );
-        Log.d("prerna","image added");
+        cv.put(KEY_IMAGE, image);
+        database.insert(DB_TABLE, null, cv);
+        Log.d("prerna", "image added");
     }
 
-  public void updateImage(byte[] image){
+    public void updateImage(byte[] image) {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(KEY_IMAGE,   image);
-        database.update(DB_TABLE , cv , null , null);
-        Log.d("prerna","image updated");
+        cv.put(KEY_IMAGE, image);
+        database.update(DB_TABLE, cv, null, null);
+        Log.d("prerna", "image updated");
     }
-    public byte[] retrieveImage(){
+
+    public byte[] retrieveImage() {
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cur = database.query(true, DB_TABLE, null,
                 null, null, null, null,
                 null, null);
-        Log.d("prerna",Integer.toString(cur.getCount()));
+        Log.d("prerna", Integer.toString(cur.getCount()));
         if (cur.moveToFirst()) {
             byte[] blob = cur.getBlob(cur.getColumnIndex(KEY_IMAGE));
             cur.close();
