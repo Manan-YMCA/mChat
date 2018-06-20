@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_background">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Name"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:id="@+id/tv_edit_name"/>
+    <View
+        android:id="@+id/view"
+        android:layout_width="160dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/tv_edit_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:background="	#D3D3D3"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="10dp"
+        android:text="This is how you appear on mChat,so pick a name your friends know you by"
+        android:textSize="17sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textAlignment="center"
+        android:id="@+id/tv1"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_rect"
+    android:layout_below="@+id/tv1"
+    android:layout_margin = "10dp"
+    android:id="@+id/et_name">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:id="@+id/et_first_name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_last_name"
+        android:layout_below="@id/et_first_name"
+        android:hint="Last Name"/>
+
+</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_name"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/save_btn_background"
+        android:text="Save"
+        android:textColor="@color/White"
+        android:paddingRight="80dp"
+        android:paddingLeft="80dp"
+        android:id="@+id/save_btn"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/save_btn"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/dialog_background"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:id="@+id/cancel_btn"
+        android:textColor="@color/LightBlue"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_marginBottom="20dp"/>
+
+
+</RelativeLayout>
