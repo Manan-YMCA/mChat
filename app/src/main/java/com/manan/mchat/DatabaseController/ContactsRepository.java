@@ -1,4 +1,4 @@
-package DatabaseController;
+package com.manan.mchat.DatabaseController;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;

@@ -1,10 +1,10 @@
-package DatabaseController;
+package com.manan.mchat.DatabaseController;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
-import Utilities.ConstantUtils;
+import com.manan.mchat.Utilities.ConstantUtils;
 
 @Database(entities = {Contact.class},version = 1,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase{

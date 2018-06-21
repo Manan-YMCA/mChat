@@ -1,4 +1,4 @@
-package Model;
+package com.manan.mchat.Model;
 public class Contact {
     private String mName;
     private String mNumber;

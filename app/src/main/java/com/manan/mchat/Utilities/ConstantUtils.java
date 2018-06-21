@@ -1,4 +1,4 @@
-package Utilities;
+package com.manan.mchat.Utilities;
 
 /**
  * Created by Suneja's on 10-06-2018.

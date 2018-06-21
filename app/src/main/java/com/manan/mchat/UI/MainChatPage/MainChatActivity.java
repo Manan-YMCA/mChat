@@ -1,4 +1,4 @@
-package com.manan.mchat.activities;
+package com.manan.mchat.UI.MainChatPage;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

@@ -1,4 +1,4 @@
-package com.manan.mchat.activities;
+package com.manan.mchat.UI.ContactPage;
 
 import android.arch.lifecycle.Observer;
 import android.content.ContentResolver;
@@ -9,14 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import DatabaseController.Contact;
-import Adapter.ContactListAdapter;
+import com.manan.mchat.DatabaseController.Contact;
 import com.manan.mchat.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import  DatabaseController.ContactsRepository;
-import DatabaseController.ContactsViewModel;
+
+import com.manan.mchat.DatabaseController.ContactsViewModel;
 
 public class ContactListActivity extends AppCompatActivity {
     private List<Contact> mContacts;
