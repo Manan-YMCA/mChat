@@ -1,4 +1,4 @@
-package com.manan.mchat.Model;
+package Model;
 public class Contact {
     private String mName;
     private String mNumber;
@@ -8,19 +8,19 @@ public class Contact {
         mNumber = number;
     }
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        mName = name;
     }
 
-    public String getmNumber() {
+    public String getNumber() {
         return mNumber;
     }
 
-    public void setmNumber(String mNumber) {
-        this.mNumber = mNumber;
+    public void setNumber(String number) {
+        mNumber = number;
     }
 }

@@ -1,11 +1,13 @@
-package com.manan.mchat.DatabaseController;
+package DatabaseController;
 
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.manan.mchat.Utilities.ConstantUtils;
+import Utilities.ConstantUtils;
 
 
 @Entity(tableName = ConstantUtils.CONTACTS_TABLE)
