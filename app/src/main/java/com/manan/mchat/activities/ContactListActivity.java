@@ -1,21 +1,22 @@
-package com.manan.mchat.UI.ContactListPage;
+package com.manan.mchat.activities;
 
 import android.arch.lifecycle.Observer;
 import android.content.ContentResolver;
 import android.database.Cursor;
-import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import com.manan.mchat.DatabaseController.Contact;
-import com.manan.mchat.DatabaseController.ContactsViewModel;
+import DatabaseController.Contact;
+import Adapter.ContactListAdapter;
 import com.manan.mchat.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import  DatabaseController.ContactsRepository;
+import DatabaseController.ContactsViewModel;
 
 public class ContactListActivity extends AppCompatActivity {
     private List<Contact> mContacts;
@@ -27,11 +28,10 @@ public class ContactListActivity extends AppCompatActivity {
     private ContactListAdapter mContactListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
         mContacts=new ArrayList<>();
-        mRecyclerView = findViewById(R.id.contact_list_rv);
+        mRecyclerView=(RecyclerView)findViewById(R.id.contact_list_rv);
         mLinearLayoutManager=new LinearLayoutManager(this);
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
@@ -60,18 +60,14 @@ public class ContactListActivity extends AppCompatActivity {
     public void getContactsIntoList(){
 
 
+
         ContentResolver cr = getApplication().getContentResolver();
         List<Contact> alContacts = new ArrayList<Contact>();
-        String[] projection = {ContactsContract
-                .CommonDataKinds
-                .Phone.DISPLAY_NAME,
-                ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.PHOTO_URI};
-
+        String[] projection = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,ContactsContract.CommonDataKinds.Phone.NUMBER ,ContactsContract.CommonDataKinds.Phone.PHOTO_URI};
         String sortOrder= ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC";
         Cursor cursor = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, projection,null, null, sortOrder);
         String name,phonenumber;
         Contact mContact;
-
         while (cursor.moveToNext()) {
 
             name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));

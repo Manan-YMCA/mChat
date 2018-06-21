@@ -1,4 +1,4 @@
-package com.manan.mchat.DatabaseController;
+package DatabaseController;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

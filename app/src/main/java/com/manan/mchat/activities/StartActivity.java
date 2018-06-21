@@ -1,18 +1,20 @@
-package com.manan.mchat.UI.StartPages;
+package com.manan.mchat.activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.accountkit.AccountKit;
+import com.facebook.accountkit.AccessToken;
 import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.manan.mchat.R;
-import com.manan.mchat.UI.ContactListPage.ContactListActivity;
+import com.manan.mchat.activities.MainChatActivity;
 
 
 public class StartActivity extends AppCompatActivity {
@@ -25,7 +27,7 @@ public class StartActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_start);
 
-        LoginButton = findViewById(R.id.btn_login);
+        LoginButton = (Button)findViewById(R.id.btn_login);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
