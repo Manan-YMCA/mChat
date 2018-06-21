@@ -24,14 +24,12 @@
             android:name="com.facebook.accountkit.ClientToken"
             android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
 
-        <activity android:name=".UI.StartPages.MainActivity">
+        <activity android:name=".UI.StartPages.StartActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.StartPages.StartActivity" />
         <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
         <activity
             android:name=".UI.ChatPage.MainChatActivity"

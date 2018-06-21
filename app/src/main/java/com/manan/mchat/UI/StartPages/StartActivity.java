@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.accountkit.AccessToken;
+import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
@@ -59,7 +61,6 @@ public class StartActivity extends AppCompatActivity {
                 // If you have an authorization code, retrieve it from
                 // loginResult.getAuthorizationCode()
                 // and pass it to your server and exchange it for an access token.
-
                 // Success! Start your next activity...
                 final Intent intent = new Intent(getApplicationContext(),ContactListActivity.class);
                 startActivity(intent);
@@ -85,5 +86,17 @@ public class StartActivity extends AppCompatActivity {
                 AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
                 configurationBuilder.build());
         startActivityForResult(intent, APP_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AccessToken accessToken = AccountKit.getCurrentAccessToken();
+
+        if (accessToken != null) {
+            startActivity(new Intent(this, ContactListActivity.class));
+        } else {
+            startActivity(new Intent(this, StartActivity.class));
+        }
     }
 }
