@@ -32,13 +32,10 @@
         </activity>
         <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
         <activity
-            android:name=".UI.ChatPage.MainChatActivity"
+            android:name=".UI.MainChatPage.MainChatActivity"
             android:label="@string/title_activity_main_chat"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".UI.ContactListPage.ContactListActivity" />
-        <activity android:name=".UI.About.AboutActivity">
 
-        </activity>
     </application>
 
 </manifest>

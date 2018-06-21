@@ -14,7 +14,7 @@ import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.manan.mchat.R;
-import com.manan.mchat.UI.ContactPage.ContactListActivity;
+import com.manan.mchat.UI.MainChatPage.MainChatActivity;
 
 
 public class StartActivity extends AppCompatActivity {
@@ -62,7 +62,7 @@ public class StartActivity extends AppCompatActivity {
                 // loginResult.getAuthorizationCode()
                 // and pass it to your server and exchange it for an access token.
                 // Success! Start your next activity...
-                final Intent intent = new Intent(getApplicationContext(),ContactListActivity.class);
+                final Intent intent = new Intent(getApplicationContext(), MainChatActivity.class);
                 startActivity(intent);
             }
 
@@ -94,9 +94,7 @@ public class StartActivity extends AppCompatActivity {
         AccessToken accessToken = AccountKit.getCurrentAccessToken();
 
         if (accessToken != null) {
-            startActivity(new Intent(this, ContactListActivity.class));
-        } else {
-            startActivity(new Intent(this, StartActivity.class));
+            startActivity(new Intent(this, MainChatActivity.class));
         }
     }
 }
