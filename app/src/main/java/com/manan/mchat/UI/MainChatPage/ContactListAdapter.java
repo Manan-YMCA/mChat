@@ -25,7 +25,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     @NonNull
     @Override
     public ContactHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(mContext).inflate(R.layout.item_contact,parent,false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_contact, parent, false);
 
         return new ContactHolder(v);
     }
@@ -40,20 +40,23 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         return mContacts.size();
     }
 
-    protected class ContactHolder extends RecyclerView.ViewHolder{
-        private TextView contactName,contactNumber;
+    public void setContacts(List<Contact> contacts) {
+        mContacts = contacts;
+        notifyDataSetChanged();
+    }
+
+    protected class ContactHolder extends RecyclerView.ViewHolder {
+        private TextView contactName, contactNumber;
+
         public ContactHolder(View v) {
             super(v);
-            contactName=v.findViewById(R.id.contact_name);
-            contactNumber=v.findViewById(R.id.contact_number);
+            contactName = v.findViewById(R.id.contact_name);
+            contactNumber = v.findViewById(R.id.contact_number);
         }
-        void bind(Contact contact){
+
+        void bind(Contact contact) {
             contactName.setText(contact.getName());
             contactNumber.setText(contact.getNumber());
         }
-    }
-    public void setContacts(List<Contact> contacts){
-        mContacts=contacts;
-        notifyDataSetChanged();
     }
 }
