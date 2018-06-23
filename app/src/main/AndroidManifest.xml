@@ -36,6 +36,12 @@
             android:label="@string/title_activity_main_chat"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".UI.Profile.ProfileActivity"
+            android:label="Profile">
+
+        </activity>
+
     </application>
 
 </manifest>

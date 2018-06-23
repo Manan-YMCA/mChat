@@ -31,7 +31,7 @@ public class StartActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phoneLogin();
+              phoneLogin();
             }
         });
 

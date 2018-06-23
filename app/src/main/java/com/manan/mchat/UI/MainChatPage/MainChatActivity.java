@@ -1,6 +1,9 @@
 package com.manan.mchat.UI.MainChatPage;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -16,12 +19,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.manan.mchat.R;
+import com.manan.mchat.UI.Profile.ProfileActivity;
 
 public class MainChatActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    public static Context contextOfApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,8 @@ public class MainChatActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_chat);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        contextOfApplication = getApplicationContext();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -95,11 +102,13 @@ public class MainChatActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Handler handler = new Handler();
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
+         } else if(id == R.id.nav_profile){
+          startActivity(new Intent(MainChatActivity.this , ProfileActivity.class));
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -122,5 +131,10 @@ public class MainChatActivity extends AppCompatActivity
         adapter.addFragment(new ContactsFragment(), "Contacts");
 
         viewPager.setAdapter(adapter);
+    }
+
+    public static Context getContextOfApplication()
+    {
+        return contextOfApplication;
     }
 }
