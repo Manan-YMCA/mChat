@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/image"
-        android:text="@string/amit_kumar"
+        android:text="Rishabh"
         android:textColor="#000"
         android:textStyle="bold"
         android:textSize="25sp"
