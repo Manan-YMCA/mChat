@@ -1,5 +1,6 @@
 package com.manan.mchat.Model;
 public class Contact {
+    //Class for Contact Model
     private String mName;
     private String mNumber;
 
