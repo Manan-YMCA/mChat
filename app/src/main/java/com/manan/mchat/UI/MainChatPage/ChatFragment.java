@@ -27,6 +27,7 @@ public class ChatFragment extends Fragment {
     private LinearLayoutManager cLinearLayoutManager;
     private List<Chatlist> chatlist ;
 
+//Sab badiya?
 
     public ChatFragment() {
         // Required empty public constructor
