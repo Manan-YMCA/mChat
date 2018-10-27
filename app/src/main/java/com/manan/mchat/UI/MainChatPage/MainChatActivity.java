@@ -57,7 +57,6 @@ public class MainChatActivity extends AppCompatActivity
 
 
 
-
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
