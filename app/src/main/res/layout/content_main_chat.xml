@@ -35,7 +35,9 @@
                 android:layout_below="@id/toolbar"
 
                 app:tabGravity="center"
-                app:tabMode="fixed" />
+                app:tabIndicatorColor="@color/LightBlue"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/LightBlue" />
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
