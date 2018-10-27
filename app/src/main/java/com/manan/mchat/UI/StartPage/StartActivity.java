@@ -1,10 +1,18 @@
 package com.manan.mchat.UI.StartPage;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.QuoteSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.accountkit.AccessToken;
@@ -24,6 +32,8 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         setContentView(R.layout.activity_start);
 
@@ -34,6 +44,19 @@ public class StartActivity extends AppCompatActivity {
               phoneLogin();
             }
         });
+
+        TextView text1 = findViewById(R.id.text1);
+        TextView text2 = findViewById(R.id.text2);
+        String s1 = "M Chat APP";
+        String s2 = "Welcome to Mchat \n Now chat with your friends on the go!";
+        SpannableStringBuilder ssb = new SpannableStringBuilder(s1);
+        ssb.setSpan(new ForegroundColorSpan(Color.MAGENTA), 7 , s1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ssb.setSpan(new RelativeSizeSpan(1.65f), 2, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        text1.setText(ssb);
+        SpannableStringBuilder ssb2 = new SpannableStringBuilder(s2);
+        ssb2.setSpan(new ForegroundColorSpan(Color.GRAY), 16, s2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE );
+        ssb2.setSpan(new RelativeSizeSpan(1.35f), 1, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        text2.setText(ssb2);
 
     }
     @Override

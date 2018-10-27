@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.manan.mchat.UI.StartPage.StartActivity">
     <FrameLayout
         android:layout_width="match_parent"
@@ -11,10 +12,93 @@
         android:id="@+id/fragment_container">
 
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="LOGIN"
-    android:id="@+id/btn_login"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp"
+                android:textSize="40sp"
+                android:text="M Chat APP"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:padding="10dp"
+                android:id="@+id/text1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text1"
+                android:layout_marginTop="70dp"
+                android:gravity="center"
+                android:text="Welcome to Mchat"
+                android:textSize="15sp"
+                android:textColor="@color/White"
+                android:id="@+id/text2"
+                android:padding="10dp"
+                />
+
+            <EditText
+                android:id="@+id/log_in_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/text2"
+                android:layout_centerHorizontal="true"
+                android:hint="Enter Mobile Number"
+                android:textColorHint="@color/White"
+                android:background="@drawable/rounded_rectangle_background"
+                android:backgroundTint="@color/colorAccentLight"
+                android:backgroundTintMode="multiply"
+                android:padding="15dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/Black"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" +91"
+                android:layout_below="@+id/text2"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_rectangle_background"
+                android:padding="15dp"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="5dp"
+                android:textColor="@color/Black"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:id="@+id/btn_login"
+                android:layout_below="@+id/log_in_num"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manan"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/White"
+                android:layout_below="@id/btn_login"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
     </FrameLayout>
+
 </RelativeLayout>
