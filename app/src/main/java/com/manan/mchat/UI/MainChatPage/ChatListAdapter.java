@@ -6,14 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.manan.mchat.Model.Chatlist;
 import com.manan.mchat.R;
+import com.manan.mchat.Utilities.GetRoundedImage;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.chatholder> {
 
@@ -36,8 +38,10 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.chatho
     @Override
     public void onBindViewHolder(@NonNull ChatListAdapter.chatholder holder, int position) {
    Chatlist cl=chatlist.get(position);
-   holder.image_name.setText(cl.getCname());
+        holder.image_name.setText(cl.getCname());
         holder.msg.setText(cl.getCmessage());
+
+        Picasso.with(mcontext).load(mcontext.getResources().getColor(R.color.LightBlue)).centerCrop().transform((Transformation) new GetRoundedImage()).into(holder.image);
 
 
     }
@@ -49,7 +53,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.chatho
 
     public class chatholder extends RecyclerView.ViewHolder
     {
-        CircleImageView image;
+        ImageView image;
         TextView image_name;
         TextView msg;
 
