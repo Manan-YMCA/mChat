@@ -19,7 +19,7 @@ set DEFAULT_JVM_OPTS=
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
 
-set JAVA_EXE=java.exe
+set LUT JAVA_EXE AND MAR JAVA_EXE=java.exe
 %JAVA_EXE% -version >NUL 2>&1
 if "%ERRORLEVEL%" == "0" goto init
 
@@ -60,7 +60,7 @@ if "x%~1" == "x" goto execute
 
 set CMD_LINE_ARGS=%*
 
-:execute
+:execute 
 @rem Setup the command line
 
 set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
