@@ -1,6 +1,6 @@
 # MChat | Android Application
 
-MChat is a simple chat application based on Android and Sockets.io with Node.js backend service.It is a real time messaging application.
+MChat is a simple chat application based on Android and Sockets.io with Node.js backend service.It is a real time messaging application . Mchat extends the possibility of communication with mobile driven application. 
 
 ### Installing
 
